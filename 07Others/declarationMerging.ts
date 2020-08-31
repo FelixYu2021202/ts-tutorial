@@ -28,11 +28,11 @@ a.c;
 class e {
     f = 1;
 }
-// class d { // err: class cannot merge
+// class e { // err: class cannot merge
 //     g = 2;
 // }
-let h: e; // d is a type
-e.prototype; // d is a value
+let h: e; // e is a type
+e.prototype; // e is a value
 e.arguments;
 
 // 3.Interface: Type+Merging
@@ -43,8 +43,8 @@ interface i {
 interface i { // merging
     k: 1;
 }
-let l: i; // h is a type
-// i.j; // err: h isn't a value
+let l: i; // i is a type
+// i.j; // err: i isn't a value
 
 // 4.Enum: only one Type + Value + Merging
 
