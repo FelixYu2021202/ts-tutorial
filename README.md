@@ -43,10 +43,10 @@
     + Ambient module
         - [declaring](https://github.com/yufeixian/ts-tutorial/blob/master/06NamespacesAndModules/03Ambient/ambientModule.d.ts)
         - [using](https://github.com/yufeixian/ts-tutorial/blob/master/06NamespacesAndModules/03Ambient/user.ts)
-        - shorthand
+        - shorthand module
             * [declaring](https://github.com/yufeixian/ts-tutorial/blob/master/06NamespacesAndModules/04ShortandAmbient/shortandAmbient.d.ts)
             * [using](https://github.com/yufeixian/ts-tutorial/blob/master/06NamespacesAndModules/04ShortandAmbient/calculator.ts)
-        - wildchar
+        - wildchar module
             * [declaring](https://github.com/yufeixian/ts-tutorial/blob/master/06NamespacesAndModules/05WildcharAmbient/allowJSON.d.ts)
             * [using](https://github.com/yufeixian/ts-tutorial/blob/master/06NamespacesAndModules/05WildcharAmbient/user.ts)
 
