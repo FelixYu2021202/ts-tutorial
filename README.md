@@ -70,3 +70,7 @@
         - [function and class component](https://github.com/yufeixian/ts-tutorial/blob/master/07Others/TSX/functionAndClassComponent.tsx)
         - [attribute type](https://github.com/yufeixian/ts-tutorial/blob/master/07Others/TSX/attributeType.tsx)
         - [children type](https://github.com/yufeixian/ts-tutorial/blob/master/07Others/TSX/childrenType.tsx)
+
+###### Tip:
+
+1. the codes with jsdoc are suggested to be copied to real ts files in order to view them
