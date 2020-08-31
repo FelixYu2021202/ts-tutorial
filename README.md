@@ -24,11 +24,11 @@
     + decorator:
         - [decorator](https://github.com/yufeixian/ts-tutorial/blob/master/05AdvancedTypes/decorator/decorator.ts)
     + triple-slash:
-        - [`///<reference path="..."/>`](https://github.com/yufeixian/ts-tutorial/blob/master/05AdvancedType/triple-slash/reference-path.ts)
-        - [`///<reference lib="..."/>`](https://github.com/yufeixian/ts-tutorial/blob/master/05AdvancedType/triple-slash/reference-lib.ts)
-        - [`///<reference type="..."/>`](https://github.com/yufeixian/ts-tutorial/blob/master/05AdvancecdType/triple-slash/reference-type.ts)
-        - [`///<amd-module name="..."/>`](https://github.com/yufeixian/ts-tutorial/blob/master/05AdvancedType/triple-slash/AsyncModuleDefinition/moduleIn.ts)
-        - [`///<amd-dependency path="..." name="..."/>`](https://github.com/yufeixian/ts-tutorial/blob/master/05AdvancedType/triple-slash/AsyncModuleDefinition/moduleOut.ts)
+        - [`///<reference path="..."/>`](https://github.com/yufeixian/ts-tutorial/blob/master/05AdvancedTypes/triple-slash/reference-path.ts)
+        - [`///<reference lib="..."/>`](https://github.com/yufeixian/ts-tutorial/blob/master/05AdvancedTypes/triple-slash/reference-lib.ts)
+        - [`///<reference type="..."/>`](https://github.com/yufeixian/ts-tutorial/blob/master/05AdvancecdTypes/triple-slash/reference-type.ts)
+        - [`///<amd-module name="..."/>`](https://github.com/yufeixian/ts-tutorial/blob/master/05AdvancedTypes/triple-slash/AsyncModuleDefinition/moduleIn.ts)
+        - [`///<amd-dependency path="..." name="..."/>`](https://github.com/yufeixian/ts-tutorial/blob/master/05AdvancedTypes/triple-slash/AsyncModuleDefinition/moduleOut.ts)
 
 6. Namespaces and modules
     + simple import and exports(based on zoo)
