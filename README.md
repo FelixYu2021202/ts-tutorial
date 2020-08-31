@@ -1,6 +1,6 @@
 # Contents
 1. basic types:
-    + [basic type](https://github.com/yufeixian/ts-tutorial/blob/master/01BasicType/basicType.ts)
+    + [basic type](https://github.com/yufeixian/ts-tutorial/blob/master/01BasicTypes/basicType.ts)
 
 2. variable declaring:
     + [variable declaring](https://github.com/yufeixian/ts-tutorial/blob/master/02VariableDeclaring/variableDeclaring.ts)
