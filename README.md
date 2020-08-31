@@ -31,7 +31,7 @@
         - [`///<amd-dependency path="..." name="..."/>`](https://github.com/yufeixian/ts-tutorial/blob/master/05AdvancedTypes/triple-slash/AsyncModuleDefinition/moduleOut.ts)
 
 6. Namespaces and modules
-    + simple import and exports(based on zoo)
+    + simple import and exports
         - [export statement](https://github.com/yufeixian/ts-tutorial/blob/master/06NamespacesAndModule/01SimpleImportAndExport/animal.ts)
         - [namespace import and default export](https://github.com/yufeixian/ts-tutorial/blob/master/06NamespacesAndModules/01SimpleImportAndExport/zoo.ts)
         - [re-export and namespace import with default](https://github.com/yufeixian/ts-tutorial/blob/master/06NamespacesAndModules/01SimpleImportAndExports/zooOpener.ts)
@@ -43,10 +43,10 @@
     + Ambient module
         - [declaring](https://github.com/yufeixian/ts-tutorial/blob/master/06NamespacesAndModules/03Ambient/ambientModule.d.ts)
         - [using](https://github.com/yufeixian/ts-tutorial/blob/master/06NamespacesAndModules/03Ambient/user.ts)
-        - shorthand module
+        - shorthand ambient module
             * [declaring](https://github.com/yufeixian/ts-tutorial/blob/master/06NamespacesAndModules/04ShortandAmbient/shortandAmbient.d.ts)
             * [using](https://github.com/yufeixian/ts-tutorial/blob/master/06NamespacesAndModules/04ShortandAmbient/calculator.ts)
-        - wildchar module
+        - wildchar ambient module
             * [declaring](https://github.com/yufeixian/ts-tutorial/blob/master/06NamespacesAndModules/05WildcharAmbient/allowJSON.d.ts)
             * [using](https://github.com/yufeixian/ts-tutorial/blob/master/06NamespacesAndModules/05WildcharAmbient/user.ts)
 
