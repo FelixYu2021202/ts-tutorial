@@ -58,5 +58,5 @@ let iterator2 = {
 }
 
 for (let i of iterator2) {
-    console.log(i); // ..., all values are psuedorandomed
+    console.log(i); // ..., all values are psuedorandom-ed
 }

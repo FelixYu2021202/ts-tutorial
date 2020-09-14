@@ -64,7 +64,7 @@ let count: Count = Count.three; // <------------------- these will be translated
 
 let unsure: any = 1234;
 unsure.print(); // ok, "print" might exist
-unsure.toString(); // ok, "toString" is exist and compiler doesn't check
+unsure.toString(); // ok, "toString" does exist but compiler doesn't know
 let sure = 1234;
 // sure.print(); // no, "print" doesn't exist
 
@@ -90,7 +90,7 @@ function infinityTimes(cb: Function) { // infered never
     while (true) cb();
 }
 
-// object: repersent any object
+// object: any object
 
 function object(obj: object | null) {
     return obj || {};

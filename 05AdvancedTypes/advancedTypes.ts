@@ -23,18 +23,18 @@ function f(g: a | b): g is b { // check if g typed b
     return false;
 }
 
-// in keyword
+// 'in' keyword
 
 if ('requireAnimationFrame' in window) { // check if window has property 'requireAnimationFrame'
     console.log('there is');
 }
 
-// typeof: return the type of the object.
+// 'typeof' keyword: return the type of the object.
 
 type h = typeof e; // d, not "object"
 console.log(typeof e); // now "undefined", because "let e: d;" didn't give e a value
 
-// instanceof
+// 'instanceof' keyword
 
 class i { }
 
@@ -72,7 +72,7 @@ abstract class p {
     abstract getThis(): this; // this refers to p
 }
 
-// index type: if T1(some type) is a string and T2(another type) has a key that's assignable to T1, than you can use T2[T1] to get the type of the value
+// indexer type: if T1(some type) is a string and T2(another type) has a key that's assignable to T1, than you can use T2[T1] to get the type of the value
 // for example: give the function below a type
 
 function map(source, properties) {
@@ -114,7 +114,7 @@ let strName: TypeName<void | string | null | undefined> = "void"; // ok
 strName = "string"; // ok
 // strName = "number"; // err: number isn't assignable to string | void | undefined | null
 
-// type inference
+// 'infer' keyword
 
 type Returns<FuncType extends Function> = FuncType extends (...args: any) => infer U ? // automatically inferred U
     U : never;
@@ -207,10 +207,10 @@ type AD = ReturnType<(name: string, sex: number) => {
 
 type AE = InstanceType<new (name: string, sex: number) => AD>; // AE: AD
 
-// ThisParameterType
+// 13. ThisParameterType: return the this type in the function
 
 type AF = ThisParameterType<(this: number, hello: string) => string>; // AF: number
 
-// OmitThisParameter
+// 14. OmitThisParameter: omit the first this type in the function
 
 type AG = OmitThisParameter<(this: number, hello: string) => string>; // AG: (hello: string) => string

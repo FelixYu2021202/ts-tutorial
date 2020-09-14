@@ -19,7 +19,7 @@ let toNumber = (obj: any) => Number(obj);
 let toBoolean: (obj: any) => boolean = 
     (obj: any) => !!obj;
 
-// optional, default, rest parameters
+// optional, default and rest parameters
 
 function adds(a = 1, b?: number, ...c: Array<number>) { // that means, if you don't emit a, then a will be 1, if you don't emit b, then it'll be null, if you emit more than two parameters, then third and more will be put into the array c
     let sum = a;
@@ -58,7 +58,7 @@ function noThis(this: void) { // make this void, when you run this function, you
     // this.a; // err: no 'a' in type void
 }
 
-// over load
+// overloads
 
 // function calculate(val: any): string; // no! it'll always return type string! When write overloads, write the most specific overload first, write the least specific overload last
 function calculate(val: string): boolean; // overloads

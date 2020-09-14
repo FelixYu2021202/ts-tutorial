@@ -70,6 +70,8 @@ let [s, t, u] = r; // types: s: number, t: string, u: boolean
 
 let {length: v, forEach: w} = i; // new variables: v, w
 
+let {forEach: { length: fl }} = i; // new variables: fl, it's value is i.forEach.length
+
 // spreading
 
 

@@ -1,12 +1,25 @@
 // symbols: the unique and sheltered key, available since ES2015
 
 let symbol1 = Symbol();
+
+// with description: you can add an optional description to know what the symbol do
+
 let symbol2 = Symbol('key'); // with symbol description
 let symbol3 = Symbol('key'); // with same description
-symbol2 == symbol3; // false, they're unique
+symbol2 === symbol3; // false, they're unique
 let object1 = {
     [symbol1]: symbol2 // symbols can use as index
 }
+
+// Symbol.for: get a symbol from the symbol library
+
+let symbol4 = Symbol.for('key2');
+let symbol5 = Symbol.for('key2');
+symbol4 === symbol5; // true, Symbol.for will always return a same symbol for the same description
+
+// Symbol.keyFor: get the description of a symbol from the symbol library
+
+Symbol.keyFor(symbol4); // 'key2'
 
 // well-known symbols
 
@@ -31,7 +44,7 @@ let arr = [1, 2, 3, 4, [5, 6, 7, 8]];
 arr[Symbol.isConcatSpreadable] = false;
 ([0, 1, 2, 3] as Array<any>).concat(arr); // [0, 1, 2, 3, 1, 2, 3, 4, [5, 6, 7, 8]]
 
-// 3. Symbol.iterator: the key of the generato function to make objects iterable. see file 'iterator and generator.ts'
+// 3. Symbol.iterator: the key of the generator function to make objects iterable. see file 'iterator and generator.ts'
 
 // 4. Symbol.match
 
@@ -57,7 +70,7 @@ arr[Symbol.isConcatSpreadable] = false;
     }
 }); // ... the first index of 'HI's existance
 
-// 7. Symbol.spicies: see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/species
+// 7. Symbol.species: see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/species
 
 // 8. Symbol.split: the function called by String.prototype.split
 
@@ -82,7 +95,7 @@ let c = {
 // 1 + {} // compiler err: {} isn't assignable to number, runtime 2
 // 1 + c; // compiler err: {} isn't assignable to number, but run Symbol.toPrimitive, runtime 6
 
-// 10. Symbol.toStringTag: normally, object.stringify an object will return '[object stringTag]', stringTag is 'Object', you can change the stringTag by using the Symbol.toStringTag
+// 10. Symbol.toStringTag: Object.stringify will return '[object stringTag]', and by default stringTag is 'Object', you can change the stringTag by using the Symbol.toStringTag
 
 let d = {
     [Symbol.toStringTag]: "D"
@@ -105,6 +118,6 @@ f[Symbol.unscopables] = {
 }
 
 with (f) {
-    property1; // no, it's unscopable
+    property1; // err:, it's unscopable
     property2; // ok
 }

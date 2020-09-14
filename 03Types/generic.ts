@@ -3,7 +3,7 @@
 // 1. normal function
 
 function a(val: number): number { // only number
-    return val;
+return val;
 }
 
 // 2. more open
@@ -35,4 +35,4 @@ e(class E {
     constructor(name: string, subsentence?: string) {
         this.descriptor = `instance ${name} created by e, ${subsentence}`;
     }
-}, "f", "hello!"); // .descriptor = "instance f created by e, hello!"
+}, "f", "hello!").descriptor; // = "instance f created by e, hello!"

@@ -65,7 +65,7 @@ type q = { value: number };
 let r: q; // q is a type
 // q.value; // q isn't a value
 
-// 6. Function: Value
+// 6. Function: Value+Merging
 
 function s(name: string): number;
 function s(name: number): string; // overloads merging

@@ -35,7 +35,7 @@ let private = new Private();
 private.name('private'); // ok
 // private.#name; // error: '#name' is private
 
-// public, private, protected
+// public, private and protected
 
 class A {
     private name: string;
@@ -118,14 +118,14 @@ let g = new G(); // ok to make instances of abstract-class-extending classes
 g.setName('g');
 g.getName(); // 'g'
 
-// class implement interface
+// interfaces-implements class
 
 interface _Square {
     length: number;
     area: number;
 }
 class Square implements _Square {
-    length: number; // must implements all the required members in interface _Square
+    length: number; // must implements all the required members in the interface _Square
     get area() {
         return this.length * this.length;
     }

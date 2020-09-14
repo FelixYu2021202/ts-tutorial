@@ -3,10 +3,18 @@ enum a { // { a: 0, b: 1, 0: "a", 1: "b" }
     a, // 0
     b // 1
 }
-// string enum: please do not use duplicated names like this 👇
-enum b { // { b: "b" }
+// string enum: every enum number can have a string literal value
+
+enum b {
+    a = "asd",
+    b = "456"
+}
+
+// please do not use duplicated names like this 👇
+enum _b { // { b: "b" }
     b = "b"
 }
+
 // mixed enum
 enum c {
     a,
@@ -16,7 +24,7 @@ enum c {
     e = 2564,
     f,
     g,
-    h // = ? want the answer, then see 57:3
+    h // = ? want the answer, then see 65:1
 }
 
 // use enums as types
@@ -37,7 +45,7 @@ function f(g: c) {
 
 // get enum keys
 
-type h = keyof typeof c; // type h = "a" | "b" | ... | "g" | "h"
+type h = keyof typeof c; // type h = "a" | "b" | ... | "g" | "h" | 0 | 1 | "1234" | ... | 2566 | ???
 
 // ambient enum
 
@@ -54,4 +62,4 @@ enum i { // { a: 1, b: 2, c: 2, 1: "a", 2: "c" }
      * })(i || i = {});
      */
 }
-// 2567
+2567;

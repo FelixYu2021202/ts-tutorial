@@ -2,4 +2,4 @@
 
 import { SayHello, helloworld } from "HelloWorld"; // import variables from ambient module "HelloWorld"
 
-SayHello(); // ok in compiler, but it's not exist in runtime
+SayHello(); // ok in compiler, but it's not *really* exist in runtime

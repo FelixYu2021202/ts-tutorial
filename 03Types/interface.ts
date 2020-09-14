@@ -48,13 +48,13 @@ let triangle: RightTriangle = {
  * @type ReadonlyArray: an read-only array with no array-changing functions
  */
 
-// assertion: use as instead of "<>"
+// assertion: use 'as' instead of "<>"
 
 // printLabel({label: 'a 10 sized', size: 10}); // error: member "size" doesn't exist on type Labeled
 printLabel({label: 'a 10 sized', size: 10} as Labeled); // ok
 printLabel(<Labeled>{label: 'a 10 sized', size: 10}); // also ok
 
-// function interface: just a function type without function name
+// function interface: just a 'interface with a no name functional member'
 
 interface Func {
     (...args: any): any
@@ -68,6 +68,7 @@ let fn: Func = function() {
 interface MyArray {
     [index: number]: number; // this means: "every number index in this object is typed number";
 }
+
 // type index signature
 
 type R = {

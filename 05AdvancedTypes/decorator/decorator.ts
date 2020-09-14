@@ -1,6 +1,8 @@
 import 'reflect-metadata'
 import assert = require("assert");
 
+// basic decorator: a decorator function have three parameters: target, name and descriptor, and run it using '@'
+
 let makeReadonly: (is: boolean) => Function = (is: boolean) => <T>(_target: any, _name: string, descriptor: TypedPropertyDescriptor<T>) => { descriptor.writable = !is }
 
 class a {
@@ -41,4 +43,4 @@ class g {
     }
 }
 
-new g().h = 1234; // err! 27:13 error type!
+new g().h = 1234; // err! 29:13:  error type!
