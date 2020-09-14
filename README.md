@@ -30,7 +30,7 @@
         >constructor parameter property readonly: 58  
         >accessors: 70  
         >static: 89  
-        >abstract" 101  
+        >abstract 101  
         >interfaces-implements class: 121
     + [enum](https://github.com/yufeixian/ts-tutorial/blob/master/03Types/enum.ts)  
         >number enum: 1  
