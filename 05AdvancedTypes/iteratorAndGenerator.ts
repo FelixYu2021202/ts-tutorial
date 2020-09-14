@@ -1,36 +1,5 @@
 // iterator: a object with a generator function name [Symbol.iterator]
 
-// runners: the well known iterators are: '...', for..in and for..of
-
-// 1. '...'
-
-let arr = [1, 2, 3, 4];
-
-console.log(...arr); // ok, equals to 'console.log(1, 2, 3, 4)' and 'console.log.apply(console, arr)'
-
-// 2. for in
-
-for (let k in arr) {
-    console.log(k); // 0, 1, 2, 3
-}
-
-// 3. for of
-
-for (let v of arr) {
-    console.log(v); // 1, 2, 3, 4
-}
-
-// 4. .next
-
-let iterator = arr[Symbol.iterator](); // get the generator function
-iterator.next(); // every time calls next, it will return an object type:
-/**
- * {
- *     done?: boolean; // true means it's the last iterating result of the iterator
- *     value: TResult; // the iterated result
- * }
- */
-
 // generators
 
 let iterator1 = {
@@ -60,3 +29,34 @@ let iterator2 = {
 for (let i of iterator2) {
     console.log(i); // ..., all values are psuedorandom-ed
 }
+
+// runners: the well known iterators are: '...', for..in and for..of
+
+// 1. '...'
+
+let arr = [1, 2, 3, 4];
+
+console.log(...arr); // ok, equals to 'console.log(1, 2, 3, 4)' and 'console.log.apply(console, arr)'
+
+// 2. for in
+
+for (let k in arr) {
+    console.log(k); // 0, 1, 2, 3
+}
+
+// 3. for of
+
+for (let v of arr) {
+    console.log(v); // 1, 2, 3, 4
+}
+
+// 4. .next
+
+let iterator = arr[Symbol.iterator](); // get the generator function
+iterator.next(); // every time calls "next", it will return an object type:
+/**
+ * {
+ *     done?: boolean; // true means it's the last iterating result of the iterator
+ *     value: TResult; // the iterated result
+ * }
+ */
