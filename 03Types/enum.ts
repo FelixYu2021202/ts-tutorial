@@ -24,7 +24,7 @@ enum c {
     e = 2564,
     f,
     g,
-    h // = ? want the answer, then see 65:1
+    h // = ? want the answer, then see 57:1
 }
 
 // use enums as types
