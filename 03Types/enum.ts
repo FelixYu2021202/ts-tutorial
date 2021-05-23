@@ -49,7 +49,7 @@ type h = keyof typeof c; // type h = "a" | "b" | ... | "g" | "h" | 0 | 1 | "1234
 
 // ambient enum
 
-declare enum i { // { a: 1, b: 2, c: 2, 1: "a", 2: "c" }
+declare enum i { // { a: 1, b: ???, c: 2, 1: "a", 2: "c" }
     a = 1,
     b, // compiler doesn't know the value of b, unless you have given a value to it.
     c = 2,
