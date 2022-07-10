@@ -239,4 +239,4 @@
 
 ###### Tip:
 
-1. the codes with jsdoc are suggested to be copied or downloaded to real ts files in order to view them. (download link: yufeixian.github.io/ts-tutorial)
+1. the codes with jsdoc are suggested to be copied or downloaded to real ts files in order to view them. (download link: FelixYu2021202.github.io/ts-tutorial)
