@@ -16,6 +16,6 @@ function checkLogEvent(event: Evt) {
 }
 // .. a lot of different checkEvent, it's such a mess! so we can use namespaces to make it clearer
 
-let a: Evt;
+let a: Evt = { type: "Evt", data: "Evt" };
 checkMessageEvent(a);
 // ...

@@ -6,4 +6,4 @@ let x = 1; // 1 has typed number (not value type 1), so compiler infered type nu
 
 // best common type: when a type is made from several different expressions, the infered type is calculate to be the "best common type":
 
-let ys = [[1, 2, 3, 4], ['a', 'b', 'c'], [true, false]]; // ideally, we want it to be "Array<Array<any>>", but here, it infered "Array<Array<number> | Array<string> | Array<boolean>>"
+let ys = [[1, 2, 3, 4], ['a', 'b', 'c'], [true, false]]; // ideally, we want it to be "any[][]", but the compiler infered "(number[] | string[] | boolean[])[]"

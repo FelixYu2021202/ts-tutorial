@@ -17,6 +17,6 @@ namespace Events {
     }
     // .. a lot of different checkEvent, at least, it's ok
 }
-let a: Events.Evt; // it's organized
+let a: Events.Evt = { type: "Evt", data: "Evt" }; // it's organized
 Events.checkMessageEvent(a);
 // ...

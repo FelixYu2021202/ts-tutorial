@@ -4,4 +4,4 @@ declare module JSX {
     }
 }
 <show />; // ok
-{/* <hide />; */} // err: hide doesn't exist on type IntrinsicElements
+{/* <hide />; */ } // err: hide doesn't exist on type IntrinsicElements

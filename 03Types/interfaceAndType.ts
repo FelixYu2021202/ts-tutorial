@@ -1,6 +1,6 @@
 // required: you can use "Required" to require all the members:
 type _required<T> = {
-    [P in keyof T]-?: T[P]; // this means: "every key in type 'T' isn't optional and the type is the type in 'T'"
+    [P in keyof T]-?: T[P]; // this means: "every key in type 'T' isn't optional and the type is the same as in 'T'"
 };
 
 interface Labeled { // you can use "Required" to require all the members
@@ -9,8 +9,8 @@ interface Labeled { // you can use "Required" to require all the members
 function printLabel(labeled: Labeled) {
     console.log(labeled.label);
 }
-printLabel({label: 'hello'}); // ok;
-printLabel({label: '10 sized', size: 10} as Labeled); // ok, at least 'label' exist
+printLabel({ label: 'hello' }); // ok;
+printLabel({ label: '10 sized', size: 10 } as Labeled); // ok, at least 'label' exist
 
 // optional: you can use "Partial" to make every members optional:
 type _partial<T> = {
@@ -27,22 +27,22 @@ let square: Square = {
     area: 1234321
 }
 
-// readonly: you can use "Readonly" to make every members optional:
-type _readonly<T> =  {
+// readonly: you can use "Readonly" to make every members readonly:
+type _readonly<T> = {
     readonly [P in keyof T]: T[P]; // this means: "every key in type 'T''s type is the type in 'T' and marked readonly";
 }
 
 interface RightTriangle {
-    readonly hook: number;
-    readonly share: number;
-    readonly string: number;
+    readonly leg1: number;
+    readonly leg2: number;
+    readonly hypotenuse: number;
 }
 let triangle: RightTriangle = {
-    hook: 3,
-    share: 4,
-    string: 5
+    leg1: 3,
+    leg2: 4,
+    hypotenuse: 5
 }
-// triangle.hook = 4; // error, member 'hook' is readonly
+// triangle.hypotenuse = 4; // error, member 'hypotenuse' is readonly
 
 /**
  * @type ReadonlyArray: an read-only array with no array-changing functions
@@ -51,22 +51,22 @@ let triangle: RightTriangle = {
 // assertion: use 'as' instead of "<>"
 
 // printLabel({label: 'a 10 sized', size: 10}); // error: member "size" doesn't exist on type Labeled
-printLabel({label: 'a 10 sized', size: 10} as Labeled); // ok
-printLabel(<Labeled>{label: 'a 10 sized', size: 10}); // also ok
+printLabel({ label: 'a 10 sized', size: 10 } as Labeled); // ok
+printLabel(<Labeled>{ label: 'a 10 sized', size: 10 }); // also ok
 
-// function interface: just a 'interface with a no name functional member'
+// function interface: just a interface with a unnamed functional member. (see function.ts)
 
 interface Func {
     (...args: any): any
 }
-let fn: Func = function() {
+let fn: Func = function () {
     console.log('log now!');
 }
 
 // index signature (indexer)
 
 interface MyArray {
-    [index: number]: number; // this means: "every number index in this object is typed number";
+    [index: number]: number; // this means: "every member with number index in this object has a type of number";
 }
 
 // type index signature
@@ -78,7 +78,7 @@ type R = {
 // class interface
 
 interface Class<T> extends Function {
-    new (...args: any): T;
+    new(...args: any): T; // must add 'new' before the parameters' bracket so that it's a 'class'
     prototype: T;
 }
 
@@ -106,4 +106,16 @@ interface D extends C { // the hole thing is { ctor: typeof C, __ctor__: typeof 
 
 // multiple extending
 
-interface Some extends Labeled, _partial<String>, Square, RightTriangle, Func, A, B, C, D {}
+interface Some extends Labeled, _partial<String>, Square, RightTriangle, Func, A, B, C, D { }
+
+// interface combination
+
+interface E {
+    name: string;
+}
+interface E {
+    age: number;
+}
+
+let person1: E = { name: "someone", age: 20 };
+// let person2: E = { name: "another one" }; // err: missing member "age"

@@ -4,23 +4,23 @@ class Greeter {
     greet(sentence: string) {
         console.log(`${this.greeting}, ${sentence}!`);
     }
-    constructor(public greeting: string) { } // here automatically create a member 'greeting' and it's public
+    constructor(public greeting: string) { } // here creates a member 'greeting' and it's public
     // same as: public greeting; constructor(greeting: string) { this.greeting = greeting; }
 }
 let greeter: Greeter = new Greeter('Hello');
-greeter.greet('there!'); // Hello, there!
+greeter.greet('there!'); // Hello, there!! (two exclamation marks)
 
 // class extending
 
 class ExpertGreeter extends Greeter {
     greet(...sentence: Array<string>) {
         for (let i = 0; i < sentence.length; i++) {
-            super.greet(sentence[i]); // 'super' is the extended class or '__proto__'
+            super.greet(sentence[i]); // 'super' is the extended class or '__proto__'. super.greet is actually Greeter.greet here
         }
     }
 }
 let greeter2 = new ExpertGreeter('Hi');
-greeter2.greet('there', 'world'); // Hi there! Hi world
+greeter2.greet('there', 'world'); // Hi there! Hi world!
 
 // ES private keyword
 
@@ -51,19 +51,19 @@ class B extends A {
     }
 }
 let a = new B();
-// a.name; // 'name's private, can only be used in the declared class
-// a.subName; // 'subName's protected, can only be used in the declared class and it's subclasses
-a.lastName; // 'lastName's public, can be used anywhere
+// a.name; // name is private, can only be used in the origin class
+// a.subName; // subName is protected, can only be used in the origin class and it's subclasses
+a.lastName; // lastName is public, can be used anywhere
 
 // constructor parameter property readonly
 
 class C {
     constructor(readonly a: string) {
-        this.a = "2"; // the readonlies aren't really read only in constructors
+        this.a = "2"; // the readonly properties can and only can be modified in the constructor
     }
     getA() {
-        // if (!this.a) this.a = "2"; // 'a's readonly
-        return this.a; // ok
+        // if (!this.a) this.a = "2"; // a is readonly
+        return this.a; // but readonly properties can be used everywhere
     }
 }
 
@@ -84,7 +84,7 @@ let d = new D();
 d.a = 1234; // ok
 d.a = true; // ok
 d.a = null; // ok
-d.a; // getting a..., null, null
+d.a; // "getting a..., null" with returned value null
 
 // static: define members of constructor itself not it's instances
 
@@ -96,7 +96,7 @@ class E {
     }
 }
 
-new E(); // build an E constructor...
+new E(); // build an E constructor
 
 // abstract: build base class that can not be instanced
 
@@ -105,7 +105,7 @@ abstract class F {
     abstract getName(): string;
     abstract setName(name: string): void;
 }
-// let f = new F(); // err: 'F' can not be instanced(or 'newed')
+// let f = new F(); // err: 'F' can not be instanced(or in another word, 'newed')
 class G extends F {
     getName() { // must implement abstract members
         return this.name;
@@ -114,7 +114,7 @@ class G extends F {
         this.name = name;
     }
 }
-let g = new G(); // ok to make instances of abstract-class-extending classes
+let g = new G(); // ok to make instances of classes which extends abstract class
 g.setName('g');
 g.getName(); // 'g'
 

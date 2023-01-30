@@ -1,4 +1,4 @@
-import type { Animal } from './animal'; // type import, only types can be imported and it can only used as types
+import type { Animal } from './animal'; // type import, only types can be imported and it can only be used as types
 import Zoo, { Park, Guard } from './zoo';
 import { Birds } from './animal';
 import './zooOpener'; // side effect, things inside it will be run but no exports can be use here

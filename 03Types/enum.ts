@@ -1,16 +1,16 @@
-// number/normal enum, every number member can be used like a normal number
+// number/normal enum, every member's value can be used as a index to find the member's name
 enum a { // { a: 0, b: 1, 0: "a", 1: "b" }
     a, // 0
     b // 1
 }
-// string enum: every enum number can have a string literal value
+// string enum: every enum member can have a string literal value
 
 enum b {
     a = "asd",
     b = "456"
 }
 
-// please do not use duplicated names like this 👇
+// duplicated names
 enum _b { // { b: "b" }
     b = "b"
 }
@@ -24,7 +24,7 @@ enum c {
     e = 2564,
     f,
     g,
-    h // = ? want the answer, then see 57:1
+    h // = ? see 57:1
 }
 
 // use enums as types
@@ -37,7 +37,7 @@ let e: c.f = c.f;
 // silly bugs finding
 
 function f(g: c) {
-    if (g == c.a && g == c.b) { // see it works
+    if (g == c.a && g == c.b) { // g cant be equal to two different values at the same time
         return true;
     }
     return false;
@@ -51,7 +51,7 @@ type h = keyof typeof c; // type h = "a" | "b" | ... | "g" | "h" | 0 | 1 | "1234
 
 declare enum i { // { a: 1, b: ???, c: 2, 1: "a", 2: "c" }
     a = 1,
-    b, // compiler doesn't know the value of b, unless you have given a value to it.
+    b, // compiler doesn't know the value of b, unless you give a value to it.
     c = 2,
 }
 2567;

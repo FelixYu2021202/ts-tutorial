@@ -1,6 +1,6 @@
 /// <reference path="./basic.ts" />
 
-// want to make it more complete!
+// add more things to it!
 
 namespace Store {
     var pool: Array<Thing>;

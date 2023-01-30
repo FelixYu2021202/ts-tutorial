@@ -1,1 +1,1 @@
-declare module "calculate"; // this is a shorthand ambient module, all things(you can import anything from a shortand ambient module) that is imported has type shorthand module
+declare module "calculate"; // this is a shorthand ambient module, all things(you can import anything from a shortand ambient module) that is imported has a type of its shorthand module

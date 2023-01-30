@@ -1,7 +1,7 @@
 /**
  * Declaration merging, some declaration can merge, but some not, the table is below this line
  * ---
- * Type of declaration|Type|Value|Merging
+ * Type of declaration|Type|Value|Merge
  * 1. Namespace       |No  |Yes  |Yes
  * 2. Class           |Yes |Yes  |No
  * 3. Interface       |Yes |No   |Yes
@@ -46,7 +46,7 @@ interface i { // merging
 let l: i; // i is a type
 // i.j; // err: i isn't a value
 
-// 4.Enum: only one Type + Value + Merging
+// 4.Enum: the only one with Type + Value + Merging
 
 enum m {
     n = 0
@@ -58,7 +58,7 @@ let p: m; // m is a type
 m.n; // m is a value
 m.o;
 
-// 5. Type: Type
+// 5. Type: just a Type
 
 type q = { value: number };
 // type q = { name: string }; // type cannot merge
@@ -78,7 +78,7 @@ function s(name: string | number) { // only one implemention
 s.arguments; // s is a value
 s.prototype;
 
-// 7. Variable
+// 7. Variable: just a value
 
 let u = 123;
 // let u = 456; // variable cannot merge

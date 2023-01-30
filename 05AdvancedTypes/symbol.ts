@@ -8,7 +8,7 @@ let symbol2 = Symbol('key'); // with symbol description
 let symbol3 = Symbol('key'); // with same description
 symbol2 === symbol3; // false, they're unique
 let object1 = {
-    [symbol1]: symbol2 // symbols can use as index
+    [symbol1]: symbol2 // symbols can be used as indices
 }
 
 // Symbol.for: get a symbol from the symbol library
@@ -23,7 +23,7 @@ Symbol.keyFor(symbol4); // 'key2'
 
 // well-known symbols
 
-// 1. Symbol.hasInstance: the function with this symbol is often declared in classes as static member, if declared, then it will be run when there's keyword 'instanceof'
+// 1. Symbol.hasInstance: the function with this symbol is often declared in classes as a static member, if declared, it will be run when there's keyword 'instanceof'
 
 class a {
     static [Symbol.hasInstance]() {
@@ -70,7 +70,16 @@ arr[Symbol.isConcatSpreadable] = false;
     }
 }); // ... the first index of 'HI's existance
 
-// 7. Symbol.species: see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/species
+// 7. Symbol.species: override the default constructor about how instances should be copied
+
+class Arr extends Array {
+    static get [Symbol.species]() {
+        return Array;
+    }
+}
+
+let ar: Arr = [1, 2];
+let sliced = arr.map(x => x); // sliced has a type of Array, not Arr
 
 // 8. Symbol.split: the function called by String.prototype.split
 

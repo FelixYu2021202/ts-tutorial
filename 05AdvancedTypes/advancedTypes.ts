@@ -1,7 +1,7 @@
 // type intersection
 
-type a = {name: string};
-type b = {sub: Function};
+type a = { name: string };
+type b = { sub: Function };
 type c = a & b; // {name: string, sub: Function}
 
 // union type
@@ -10,7 +10,7 @@ type d = a | b; // the variables typed d must have member 'name' or 'sub'
 
 // type guard
 
-let e: d;
+let e: d = { name: "e" };
 
 if ((e as a).name) { // check if e has property 'name'
     console.log((e as a).name);
@@ -31,8 +31,8 @@ if ('requireAnimationFrame' in window) { // check if window has property 'requir
 
 // 'typeof' keyword: return the type of the object.
 
-type h = typeof e; // d, not "object"
-console.log(typeof e); // now "undefined", because "let e: d;" didn't give e a value
+type h = typeof e; // the type of e, not d or a or "object"
+console.log(typeof e); // now "object"
 
 // 'instanceof' keyword
 
@@ -41,13 +41,13 @@ class i { }
 let j = new i;
 j instanceof Object; // true, j do have all properties from Object's prototype
 
-// nullable types: if you are using --strictNullChecks, then you can't make any non-null-typed variable null
+// nullable types: if you are using --strictNullChecks, then null is not assignable to any non-null-typed variable
 
 type str = string | null | undefined;
-let k: string = null; // error on --strictNullChecks
+// let k: string = null; // error on --strictNullChecks
 let l: str = null; // ok
 
-// value types: many types don't refer to values, but basic types can
+// value types: many types don't refer to values, but basic types does
 
 type someType = 1 | false | "ok";
 
@@ -72,7 +72,7 @@ abstract class p {
     abstract getThis(): this; // this refers to p
 }
 
-// indexer type: if T1(some type) is a string and T2(another type) has a key that's assignable to T1, than you can use T2[T1] to get the type of the value
+// indexer type: if T1 is a string (or number) and type T2 has a key that's assignable to T1, than you can use T2[T1] to get the type of the value
 // for example: give the function below a type
 
 function map(source, properties) {
@@ -85,7 +85,7 @@ function map2<SourceType, Key extends keyof SourceType>(source: SourceType, prop
     return properties.map(key => source[key]);
 }
 
-// mapped type: it's similar to index type
+// mapped type: it's similar to indexer type
 
 type Part<SourceType> = {
     [Key in keyof SourceType]?: SourceType[Key]; // mapped type
@@ -152,7 +152,7 @@ type T = Partial<{
 type U = Required<{
     b?: number
     readonly c: string
-}>; // U: { b: number, c: string }
+}>; // U: { b-?: number, c-?: string }
 
 // 3. Readonly
 
@@ -190,22 +190,22 @@ type AA = NonNullable<string | number | null | undefined>; // AA: string | numbe
 
 // 9. Parameters
 
-type AB = Parameters<(name: string, sex: number) => void>; // [string, number]
+type AB = Parameters<(name: string, age: number) => void>; // [string, number]
 
 // 10. ConstructorParameters: similar to Parameters, but only for classes
 
-type AC = ConstructorParameters<new (name: string, sex: number) => any>; // [string, number]
+type AC = ConstructorParameters<new (name: string, age: number) => any>; // [string, number]
 
 // 11. ReturnType
 
-type AD = ReturnType<(name: string, sex: number) => {
+type AD = ReturnType<(name: string, age: number) => {
     name: string,
-    sex: string;
+    age: string;
 }> // AD: { name: string, sex: string }
 
 // 12. InstanceType: return type of classes
 
-type AE = InstanceType<new (name: string, sex: number) => AD>; // AE: AD
+type AE = InstanceType<new (name: string, age: number) => AD>; // AE: AD
 
 // 13. ThisParameterType: return the this type in the function
 

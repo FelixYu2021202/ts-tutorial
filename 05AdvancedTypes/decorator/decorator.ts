@@ -9,7 +9,7 @@ class a {
     @makeReadonly(true)
     b: string = "1234";
 }
-new a().b = "4564"; // runtime error, because d.e is readonly
+new a().b = "4564"; // runtime error, because a.b is readonly
 
 let checkName: (name: string) => PropertyDecorator = (name: string) => (_target: any, propName: string) => assert(name == propName, "invalid name!");
 
@@ -25,16 +25,16 @@ let Validate: Function = (target: object, key: string, descriptor: PropertyDescr
     let setter = descriptor.set;
     descriptor.set = function (v) {
         let type = Reflect.getMetadata("type", target, key);
-        if (! (v instanceof type)) {
+        if (!(v instanceof type)) {
             throw new TypeError("error type!");
         }
         setter(v);
     }
 }
 class g {
-    _a= null
+    _a = null;
     @Validate
-    @Reflect.metadata('type', a)
+    @Reflect.metadata('type', c)
     set h(v: any) {
         this._a = v;
     }
